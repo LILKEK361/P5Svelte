@@ -37,6 +37,9 @@
 	"type": "module",
 	"dependencies": {
 		"daisyui": "^2.51.6",
-		"doctoc": "^2.2.1"
+		"doctoc": "^2.2.1",
+		"svelte-icons": "^2.1.0",
+		"svelte-navigator": "^3.2.2",
+		"svelte-routing": "^1.10.0"
 	}
 }

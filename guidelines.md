@@ -38,7 +38,6 @@ An Example: `MyComponent.svelte`
 Variables and functions will be named after their purpose. The first letter is lowercase, and the first letter of every 
 word in the name is written in uppercase.
 An Example: `myVariable` or `myFunction()`
-Another Example: `myVar : any`
 
 
 ## 2. Project file architecture
