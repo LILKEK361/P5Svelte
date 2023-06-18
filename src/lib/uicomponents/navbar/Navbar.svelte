@@ -11,7 +11,9 @@
 <div class="w-[15vw] h-screen bg-gray-800">
     <Router>
         <nav>
-            <ul>
+            <ul class="space-y-8 mt-[200px]">
+
+
                 <li>
                     <Link to="/dashboard">
                         <NavItem icon={DashboardIcon} itemName="Dashboard"/>
