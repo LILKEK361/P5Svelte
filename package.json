@@ -40,6 +40,7 @@
 		"chartjs": "^0.3.24",
 		"daisyui": "^2.51.6",
 		"doctoc": "^2.2.1",
+		"firebase": "^9.22.2",
 		"svelte-icons": "^2.1.0",
 		"svelte-navigator": "^3.2.2",
 		"svelte-routing": "^1.10.0"

@@ -1,7 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import {initializeApp} from "firebase/app";
 import "firebase/app";
 
-import {getDatabase} from "firebase/database";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import {getDatabase} from "firebase/database"
 
 const firebaseConfig = {
     apiKey: "AIzaSyB0PjT0hCV-9QpmwxNeWz0QZwdh4iPdYQQ",

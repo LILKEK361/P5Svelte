@@ -2,9 +2,10 @@
 
     import {fetchCo2Data} from "$lib/database/DataFetcher";
     import {onMount} from "svelte";
-    import Chart from 'chart.js/auto/auto.js';
+    import { Chart } from "chart.js/auto";
 
     const data: Array<number> = fetchCo2Data();
+
     let chart;
 
     const config = {
