@@ -1,50 +1,32 @@
-<script lang="ts">
-
-    import {fetchCo2Data} from "$lib/database/DataFetcher";
-    import {onMount} from "svelte";
-    import { Chart } from "chart.js/auto";
-
-    const data: Array<number> = fetchCo2Data();
+<script>
+    import {onMount} from 'svelte';
+    import Chart from 'chart.js/auto';
+    import {fetchCo2Data} from "$lib/database/DataFetcher.js";
 
     let chart;
 
-    const config = {
+    const data = {
+        labels: ['5', '4', '3', '2', '1', '0'],
+        datasets: [{
+            label: 'Co2 over time',
+            data: [1, 2, 3, 1, 5, 6],
+            fill: true,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: .3
+        }]
+    };
 
-        type: 'doughnut',
+    const config = {
+        type: 'line',
         data: data,
-        options: {
-            borderRadius: '30',
-            responsive: true,
-            cutout: '95%',
-            spacing: 2,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    display: true,
-                    labels: {
-                        usePointStyle: true,
-                        padding: 20,
-                        font: {
-                            size: 14
-                        }
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'My Personal Portfolio'
-                }
-            }
-        }
     };
 
     onMount(() => {
         const ctx = chart.getContext('2d');
-        // Initialize chart using default config set
         var myChart = new Chart(ctx, config);
     })
 
-</script>
+    fetchCo2Data();
 
-<div>
-    <svelte:component this={chart}/>
-</div>
+</script>
+<canvas bind:this={chart} class="w-[60vw]"/>
