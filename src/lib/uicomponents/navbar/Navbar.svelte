@@ -1,5 +1,5 @@
 <script lang="ts">
-    import NavItem from "$lib/uicomponents/Navbar/NavItem.svelte";
+    import NavItem from "$lib/uicomponents/navbar/NavItem.svelte";
     import Co2Icon from "$lib/assets/Co2Icon.svelte";
     import {Link, Router} from "svelte-routing";
     import DashboardIcon from "$lib/assets/DashboardIcon.svelte";

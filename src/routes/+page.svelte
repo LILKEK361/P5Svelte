@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Navbar from "$lib/uicomponents/Navbar/Navbar.svelte";
+    import Navbar from "$lib/uicomponents/navbar/Navbar.svelte";
     import Dashboard from "$lib/pages/Dashboard.svelte";
     import Co2 from "$lib/pages/Co2.svelte";
     import {Route, Router} from "svelte-routing";
