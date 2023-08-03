@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
     import {onMount} from 'svelte';
-    import Chart from 'chart.js/auto';
+    import {Chart} from 'chart.js/auto';
     import {fetchCo2Data} from "$lib/database/DataFetcher.js";
 
-    let chart;
+    let chart : any;
 
     const data = {
         labels: ['5', '4', '3', '2', '1', '0'],
