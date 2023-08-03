@@ -4,7 +4,7 @@ import Personinfo from "$lib/uicomponents/pagecomponents/Personinfo.svelte";
 </script>
 
 <div>
-    <div class="flex justify-center items-center w-[100vw] h-[100vh] overlow-hidden">
+    <div class="flex justify-center items-center w-[100vw] h-[100vh] overflow-hidden">
         <table class="w-[100%] h-[100%] text-center flex justify-center items-center">
             <tbody>
             <tr>

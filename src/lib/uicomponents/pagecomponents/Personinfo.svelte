@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let Picture;
-    export let Name;
+    export let Picture : string;
+    export let Name : string;
     export let PersonalInfo : []
 </script>
 
