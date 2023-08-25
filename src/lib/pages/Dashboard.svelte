@@ -1,6 +1,9 @@
 <script lang="ts">
 
     import LineChart from "$lib/uicomponents/charts/LineChart.svelte";
+    import {checkValueForTable} from "$lib/assets/TypeScriptCode/extracode";
+    import {getSpecificData} from "$lib/database/DatabaseConfig";
+
 </script>
 
 <div>
@@ -14,9 +17,11 @@
             <td>Status<td>
         </tr>
         <tr>
-            <td>Test<td>
-            <td class="border-2 border-white">0.002%<td>
-            <td>Good<td>
+            <td>Air Quality<td>
+            <td class="border-2 border-white">
+                 {getSpecificData("/Arduino/devices/random_id/current_data/AirQualtiy")}
+            <td>
+            <td>{checkValueForTable(0.005, 0.004, 0.001)}<td>
         </tr>
     </table>
 

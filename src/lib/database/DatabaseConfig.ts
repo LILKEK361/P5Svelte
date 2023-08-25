@@ -5,7 +5,7 @@ import "firebase/app";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import {getDatabase} from "firebase/database"
+import {getDatabase, onValue, ref} from "firebase/database"
 
 const firebaseConfig = {
     apiKey: "AIzaSyB0PjT0hCV-9QpmwxNeWz0QZwdh4iPdYQQ",
@@ -20,3 +20,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
+
+export  function getSpecificData(path : string){
+    const startref = ref(db, path)
+    return onValue(startref,  (snapshot) => {
+        console.log(snapshot.val())
+       if(snapshot.val()){
+
+           return snapshot.val()
+       }
+       return "N/A"
+    });
+}
