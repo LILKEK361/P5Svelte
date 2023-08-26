@@ -5,7 +5,7 @@ import "firebase/app";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import {getDatabase} from "firebase/database"
+import {getDatabase, onValue, ref} from "firebase/database"
 
 const firebaseConfig = {
     apiKey: "AIzaSyB0PjT0hCV-9QpmwxNeWz0QZwdh4iPdYQQ",
@@ -20,3 +20,45 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
+
+export const pathsForElements = {
+    "AirQuality" : "/Arduino/devices/random_id/current_data/AirQualtiy",
+    "CO2" : "/Arduino/devices/random_id/current_data/CO2",
+    "N2" : "/Arduino/devices/random_id/current_data/N2",
+    "O2" : "/Arduino/devices/random_id/current_data/O2"
+}
+
+export const MinMaxValuesforElements = {
+    "AirQuality" : {
+        min : 1,
+        max : 4
+    },
+    "CO2" : {
+        min : 1,
+        max : 4
+    },
+    "N2" : {
+        min : 1,
+        max : 4
+    },
+    "O2" : {
+        min : 1,
+        max : 4
+    }
+}
+
+export  function getSpecificData(path : string){
+    const startref = ref(db, path)
+    let Data : number;
+   onValue(startref,  (snapshot) => {
+       console.log(snapshot.val())
+       if(snapshot.val()){
+
+           Data =  snapshot.val()
+       }else{
+           Data = 0
+       }
+
+    });
+   return Data
+}
