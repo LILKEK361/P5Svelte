@@ -35,6 +35,11 @@
                     </Link>
                 </li>
                 <li>
+                    <Link to="/location">
+                        <NavItem icon={SettingsIcon} itemName="Location"/>
+                    </Link>
+                </li>
+                <li>
                     <Link to="/settings">
                         <NavItem icon={SettingsIcon} itemName="Settings"/>
                     </Link>

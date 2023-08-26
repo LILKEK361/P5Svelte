@@ -6,6 +6,7 @@
     import Temperature from "$lib/pages/Temperature.svelte";
     import Settings from "$lib/pages/Settings.svelte";
     import About from "$lib/pages/About.svelte";
+    import Locaction from "$lib/pages/Locaction.svelte";
 </script>
 
 <div class="w-screen h-screen flex">
@@ -16,5 +17,6 @@
         <Route component={Temperature} path="/temperature"/>
         <Route component={Settings} path="/settings"/>
         <Route component={About} path="/about"/>
+        <Route component={Locaction} path="/location"></Route>
     </Router>
 </div>

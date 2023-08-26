@@ -3,9 +3,9 @@
 import Personinfo from "$lib/uicomponents/pagecomponents/Personinfo.svelte";
 </script>
 
-<div>
+
     <div class="flex justify-center items-center w-[100vw] h-[100vh] overflow-hidden">
-        <table class="w-[100%] h-[100%] text-center flex justify-center items-center">
+        <table class="w-[100%] h-[100%] text-center flex justify-center items-center overflow-hidden">
             <tbody>
             <tr>
                 <td class="pl-5 pr-5"><Personinfo PersonalInfo={["Age: 18", "Tasks:", " Builden the WebApp,", "Setting up the Arduino,", "Designing the Charts with Chartjs", "Role: Programmer"]} Name={"Nick Hillmann"} Picture={"/src/assets/Nick03.jpeg"}></Personinfo>
@@ -22,4 +22,4 @@ import Personinfo from "$lib/uicomponents/pagecomponents/Personinfo.svelte";
             </tbody>
         </table>
     </div>
-</div>
+
