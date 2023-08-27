@@ -29,6 +29,6 @@
 
 
 </script>
-<div class="w-5/6 h-5/6">
+<div class="w-4/6 h-4/6">
     <canvas bind:this={chart} class="h-full w-full" > </canvas>
 </div>
