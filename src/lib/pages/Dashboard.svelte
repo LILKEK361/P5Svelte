@@ -19,29 +19,30 @@
 
 </script>
 
-<div class="overflow-hidden flex items-center">
+<div class="overflow-hidden flex items-center w-full h-full]">
 
-
-    <!-- Table -->
-    <table class="border-2 border-white max-w-[50vw] min-w-[40vw] min-h-[20vh]  max-h-[50vh] p-0 m-0 ">
-        <tr class="flex justify-between w-full text-center border-b-2 ">
-            <td class="w-[50%]" >Stoff<td>
-            <td class="border-l-2 border-r-2 w-[25%]">Wert<td>
-            <td class="w-[25%]">Status<td>
-        </tr>
-        {#each allElements as element}
-            <tr class="border-b-2 flex justify-between w-full text-center ">
-                <td class="w-[50%]">{element}</td>
-                <td class="border-l-2 border-r-2 border-white w-[25%]">{allValuesForElements[element]}</td>
-                <td class="w-[25%]">{checkValueForTable(allValuesForElements[element], MinMaxValuesforElements[element].max, MinMaxValuesforElements[element].min)}</td>
+    <div class="w-[50%]">
+        <!-- Table -->
+        <table class="border-2 border-white max-w-[50vw] min-w-[40vw] ml-10  ">
+            <tr class="flex justify-between w-full text-center border-b-2 ">
+                <td class="w-[50%]" >Stoff<td>
+                <td class="border-l-2 border-r-2 w-[25%]">Wert<td>
+                <td class="w-[25%]">Status<td>
             </tr>
-        {/each}
-    </table>
+            {#each allElements as element}
+                <tr class="border-b-2 flex justify-between w-full text-center ">
+                    <td class="w-[50%]">{element}</td>
+                    <td class="border-l-2 border-r-2 border-white w-[25%]">{allValuesForElements[element]}</td>
+                    <td class="w-[25%]">{checkValueForTable(allValuesForElements[element], MinMaxValuesforElements[element].max, MinMaxValuesforElements[element].min)}</td>
+                </tr>
+            {/each}
+        </table>
+    </div >
 
     <!--Doughnut Chart -->
-
-    <DonutChart />
-
+    <div class="w-[50%] h-full flex items-center justify-center">
+        <DonutChart  />
+    </div>
 </div>
 
 
