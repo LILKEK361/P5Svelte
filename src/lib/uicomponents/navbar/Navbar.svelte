@@ -1,4 +1,5 @@
 <script lang="ts">
+    //npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
     import NavItem from "$lib/uicomponents/navbar/NavItem.svelte";
     import Co2Icon from "$lib/assets/Co2Icon.svelte";
     import {Link, Router} from "svelte-routing";
@@ -6,6 +7,7 @@
     import TemperatureIcon from "$lib/assets/TemperatureIcon.svelte";
     import SettingsIcon from "$lib/assets/SettingsIcon.svelte";
     import AboutUsIcon from "$lib/assets/AboutUsIcon.svelte";
+    import LocationIcon from "$lib/assets/LocationIcon.svelte";
 </script>
 
 <div class="w-[15vw] h-screen bg-gray-800">
@@ -36,7 +38,7 @@
                 </li>
                 <li>
                     <Link to="/location">
-                        <NavItem icon={SettingsIcon} itemName="Location"/>
+                        <NavItem icon={LocationIcon} itemName="Location"/>
                     </Link>
                 </li>
                 <li>
