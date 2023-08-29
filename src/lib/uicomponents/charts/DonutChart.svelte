@@ -3,13 +3,16 @@
     import {Chart} from 'chart.js/auto';
 
     const colorArray : Array<string> = ["#005ce6", "#003399", "#3333cc", "#0000cc"]
+    export let ChartData : Array<integer>
+    export let ChartLabels : Array<string>
+
     let chart : any;
 
     const data = {
-        labels: ['5', '4', '3', '2', '1', '0'],
+        labels: [...ChartLabels],
         datasets: [{
             label: 'Co2 over time',
-            data: [1, 2, 3, 1, 5, 6],
+            data: [...ChartData],
             fill: true,
             borderColor: 'rgb(75, 192, 192)',
             backgroundColor : [...colorArray],
@@ -26,6 +29,7 @@
         const ctx = chart.getContext('2d');
         var myChart = new Chart(ctx, config);
         ctx.height = "20vh"
+        console.log(ChartData)
     })
 
 

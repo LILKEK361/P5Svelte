@@ -8,3 +8,4 @@ export function checkValueForTable(value : number, maxValue : number, minValue :
     }
     return "Invalid"
 }
+

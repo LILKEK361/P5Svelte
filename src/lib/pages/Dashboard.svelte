@@ -4,16 +4,23 @@
     import {checkValueForTable} from "$lib/assets/TypeScriptCode/extracode";
     import {getSpecificData, MinMaxValuesforElements, pathsForElements} from "$lib/database/DatabaseConfig";
     import DonutChart from "$lib/uicomponents/charts/DonutChart.svelte";
+    import {onMount} from 'svelte';
 
     const allElements = ["AirQuality", "CO2", "N2", "O2"]
-    const allValuesForElements = {"AirQuality" : 0, "CO2" : 0, "N2" : 0, "O2" : 0}
+    let allValuesForElements = {"AirQuality" : 0, "CO2" : 0, "N2" : 0, "O2" : 0}
 
 
     setTimeout(() => {
-        allElements.forEach((element) => {
+         allElements.forEach((element) => {
             allValuesForElements[element] = getSpecificData(pathsForElements[element])
         })
         }, 1000)
+
+    onMount( async () => {
+       await  allElements.forEach((element) => {
+            allValuesForElements[element] = getSpecificData(pathsForElements[element])
+        })
+    })
 
 
 
@@ -41,7 +48,15 @@
 
     <!--Doughnut Chart -->
     <div class="w-[50%] h-full flex items-center justify-center">
-        <DonutChart  />
+
+        <DonutChart ChartData={[
+            allValuesForElements["AirQuality"],
+            allValuesForElements["CO2"],
+            allValuesForElements["N2"],
+            allValuesForElements["O2"]]}
+
+                    ChartLabels={[...allElements]}  />
+        
     </div>
 </div>
 
