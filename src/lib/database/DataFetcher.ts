@@ -12,11 +12,18 @@ export function fetchCo2Data(): Array<number> {
     return [];
 }
 
-export async function getsingeldata(path : string){
+export  function getSpecificData(path : string){
     const startref = ref(db, path)
-    let singledata;
-    await onValue(startref, (snapshot) => {
-        singledata = snapshot.val()
-    })
-    return singledata;
+    let Data : number;
+    onValue(startref,  (snapshot) => {
+        console.log(snapshot.val())
+        if(snapshot.val()){
+
+            Data =  snapshot.val()
+        }else{
+            Data = 0
+        }
+
+    });
+    return Data
 }

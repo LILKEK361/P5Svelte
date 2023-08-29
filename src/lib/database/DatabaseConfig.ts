@@ -47,18 +47,3 @@ export const MinMaxValuesforElements = {
     }
 }
 
-export  function getSpecificData(path : string){
-    const startref = ref(db, path)
-    let Data : number;
-   onValue(startref,  (snapshot) => {
-       console.log(snapshot.val())
-       if(snapshot.val()){
-
-           Data =  snapshot.val()
-       }else{
-           Data = 0
-       }
-
-    });
-   return Data
-}
