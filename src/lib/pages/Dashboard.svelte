@@ -4,7 +4,7 @@
     import {checkValueForTable} from "$lib/assets/TypeScriptCode/extracode";
     import { MinMaxValuesforElements, AirQualityVal, CO2Val, N2Val, O2Val} from "$lib/database/DatabaseConfig";
     import {getSpecificData, readDashboardData} from "$lib/database/DataFetcher.ts"
-    import DashboardChart from "$lib/uicomponents/charts/SpecificCharts/DashboardChart.svelte";
+    import DonutChart from "$lib/uicomponents/charts/DonutChart.svelte";
     import {onMount} from 'svelte';
     import {writable} from 'svelte/store';
 
@@ -14,9 +14,8 @@
 
 
 
-    onMount( async function(){
-       await readDashboardData()
-    })
+
+
 
 
 
@@ -61,7 +60,7 @@
 
         <div class="w-[50%] h-full flex items-center justify-center">
 
-                <DashboardChart />
+              <DonutChart ChartLabels={["AirQuality", "CO2", "N2", "O2"]} ChartData={[$AirQualityVal, $CO2Val, $N2Val, $O2Val]} />
 
         </div>
 

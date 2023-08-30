@@ -7,6 +7,11 @@
     import Settings from "$lib/pages/Settings.svelte";
     import About from "$lib/pages/About.svelte";
     import Locaction from "$lib/pages/Locaction.svelte";
+    import {onMount} from "svelte";
+    import {readDashboardData} from "$lib/database/DataFetcher";
+    onMount( async function(){
+        await readDashboardData()
+    })
 </script>
 
 <div class="w-screen h-screen flex">

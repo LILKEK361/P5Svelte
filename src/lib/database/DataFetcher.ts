@@ -12,27 +12,18 @@ export function fetchCo2Data(): Array<number> {
     return [];
 }
 
-export  function getSpecificData(path : string){
+export async  function getSpecificData(path : string){
     const startref = ref(db, path)
-    let Data : number;
-    onValue(startref,  (snapshot) => {
+    const snapshot = await get(startref)
 
-        if(snapshot.val()){
-
-            Data =  snapshot.val()
-        }else{
-            Data = 0
-        }
-
-    });
-    return Data
+    return snapshot.val();
 }
 
 export async function readDashboardData(){
-    AirQualityVal.set(getSpecificData(pathsForElements["AirQuality"]))
-    CO2Val.set(getSpecificData(pathsForElements["CO2"]))
-    N2Val.set(getSpecificData(pathsForElements["N2"]))
-    O2Val.set(getSpecificData(pathsForElements["O2"]))
+    AirQualityVal.set( await getSpecificData(pathsForElements["AirQuality"]))
+    CO2Val.set(await getSpecificData(pathsForElements["CO2"]))
+    N2Val.set(await getSpecificData(pathsForElements["N2"]))
+    O2Val.set(await getSpecificData(pathsForElements["O2"]))
 
 
 }
