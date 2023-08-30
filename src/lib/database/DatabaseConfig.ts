@@ -6,6 +6,7 @@ import "firebase/app";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import {getDatabase, onValue, ref} from "firebase/database"
+import {writable} from "svelte/store";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB0PjT0hCV-9QpmwxNeWz0QZwdh4iPdYQQ",
@@ -27,6 +28,7 @@ export const pathsForElements = {
     "N2" : "/Arduino/devices/random_id/current_data/N2",
     "O2" : "/Arduino/devices/random_id/current_data/O2"
 }
+export const allElements = writable(["AirQuality", "CO2", "N2", "O2"])
 
 export const MinMaxValuesforElements = {
     "AirQuality" : {
@@ -46,4 +48,10 @@ export const MinMaxValuesforElements = {
         max : 4
     }
 }
+export const AirQualityVal = writable(0)
+export const CO2Val = writable(0)
+export const N2Val = writable(0)
+export const O2Val = writable(0)
+
+export const AllElementValues = writable({"AirQuality" : 0, "CO2" : 0, "N2" : 0, "O2" : 0})
 

@@ -3,7 +3,7 @@
     import {Chart} from 'chart.js/auto';
 
     const colorArray : Array<string> = ["#005ce6", "#003399", "#3333cc", "#0000cc"]
-    export let ChartData : Array<string>
+    export let ChartData : Array<integer>
     export let ChartLabels : Array<string>
 
     let chart : any;
