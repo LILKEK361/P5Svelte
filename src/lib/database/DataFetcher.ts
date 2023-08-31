@@ -1,5 +1,5 @@
 import {child, get, ref, onValue} from "firebase/database";
-import {db, pathsForElements, allElements, AllElementValues, AirQualityVal, CO2Val, N2Val, O2Val } from "$lib/database/DatabaseConfig";
+import {db, pathsForElements,  AirQualityVal, CO2Val, N2Val, O2Val } from "$lib/database/DatabaseConfig";
 
 export function fetchCo2Data(): Array<number> {
     const dbRef = ref(db);
@@ -14,9 +14,11 @@ export function fetchCo2Data(): Array<number> {
 
 export async  function getSpecificData(path : string){
     const startref = ref(db, path)
-    const snapshot = await get(startref)
+    const snapshot = await get(startref).catch((err: any) => {
+        console.error("Failed to get Data")
+    })
 
-    return snapshot.val();
+    return snapshot?.val();
 }
 
 export async function readDashboardData(){
@@ -24,6 +26,5 @@ export async function readDashboardData(){
     CO2Val.set(await getSpecificData(pathsForElements["CO2"]))
     N2Val.set(await getSpecificData(pathsForElements["N2"]))
     O2Val.set(await getSpecificData(pathsForElements["O2"]))
-
 
 }

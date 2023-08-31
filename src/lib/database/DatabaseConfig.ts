@@ -36,8 +36,8 @@ export const MinMaxValuesforElements = {
         max : 4
     },
     "CO2" : {
-        min : 1,
-        max : 4
+        min : 0.003,
+        max : 0.007
     },
     "N2" : {
         min : 1,
