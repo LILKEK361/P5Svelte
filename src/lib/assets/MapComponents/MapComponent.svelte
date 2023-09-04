@@ -1,35 +1,40 @@
-<script lang="ts" src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[At6OvxrwTSlslO408nAWIZqVCklIQB4w9NXPaA4bz_M7cM3Eq_VMRFID0XyeqDCZ]' async defer>
 
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import "@maptiler/sdk/dist/maptiler-sdk.css";
+    import * as maptilersdk from '@maptiler/sdk';
 
+    export let places  = [{Lng : 1, Lat : 1}]
+    let map : any
 
-    import { onMount, onDestroy } from 'svelte';
-    import * from "bingmaps"
-
-
-    let map : any;
+    function addMarker(){
+        places.forEach( (ob) => {
+            const marker = new maptilersdk.Marker()
+                .setLngLat([ob.Lng, ob.Lat])
+                .setPopup(new maptilersdk.Popup().setText("Co2 : null" +
+                    "N2 : null" +
+                    " O2 : null"))
+                .addTo(map);
+        })
+    }
 
     onMount(() => {
-        // Initialize the Bing Map
-        map = new BingMaps.Map(document.getElementById('map'), {
-            credentials: 'YOUR_BING_MAPS_API_KEY',
-            center: new BingMaps.Location(51.505, -0.09),
-            zoom: 13
-        });
-    });
+        maptilersdk.config.apiKey = '28M9ofbQ28SuG7CC7PXo';
 
-    onDestroy(() => {
-        // Clean up when the component is destroyed
-        if (map) {
-            map.dispose();
-        }
+         map = new maptilersdk.Map({
+            container: 'Map', // container's id or the HTML element to render the map
+            style: "basic-v2",
+            center: [8.8017,53.0793], // starting position [lng, lat]
+            zoom: 14, // starting zoom
+        });
+
+         addMarker()
+
+
+
+
+
     });
 </script>
 
-<style>
-    #map {
-        width: 100%;
-        height: 400px;
-    }
-</style>
-
-<div id="map"></div>
+<div id="Map" class="h-[50vh] w-[50vw]"></div>
